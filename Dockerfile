@@ -1,14 +1,14 @@
 FROM {{BASE_IMAGE}}
 
-ENV {{env_var.key}}={{env_var.value}}
+ENV {{ENV_VARS.key}}={{ENV_VARS.value}}
 
 WORKDIR {{WORKDIR}}
 
-COPY {{file.src}} {{file.dest}}
+COPY {{FILES.src}} {{FILES.dest}}
 
 RUN {{INSTALL_COMMAND}}
 
-EXPOSE {{port}}
+EXPOSE {{PORT}}
 
 ENTRYPOINT [{{ENTRYPOINT}}]
 
