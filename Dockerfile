@@ -1,10 +1,14 @@
 FROM {{BASE_IMAGE}}
 
-ENV {{ENV_VARS.key}}={{ENV_VARS.value}}
+{{#each ENV_VARS}}
+ENV {{this}}
+{{/each}}
 
 WORKDIR {{WORKDIR}}
 
-COPY {{FILES.src}} {{FILES.dest}}
+{{#each FILES}}
+COPY {{this}}
+{{/each}}
 
 RUN {{INSTALL_COMMAND}}
 
