@@ -1,10 +1,10 @@
 FROM {{BASE_IMAGE}}
 
-ENV {{ENV_VARS.key}}={{ENV_VARS.value}}
+ENV {{this.key}}={{this.value}}
 
 WORKDIR {{WORKDIR}}
 
-COPY {{FILES.src}} {{FILES.dest}}
+COPY {{this.src}} {{this.dest}}
 
 RUN {{INSTALL_COMMAND}}
 
