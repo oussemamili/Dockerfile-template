@@ -22,6 +22,10 @@ COPY {{this.hostPath}} {{this.containerPath}}
 RUN {{INSTALL_COMMAND}}
 {{/if}}
 
+{{#if INSTALL_COMMAND}}
+VOLUME {{VOLUME}}
+{{/if}}
+
 {{#if PORT}}
 EXPOSE {{PORT}}
 {{/if}}
