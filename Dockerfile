@@ -8,8 +8,8 @@ ENV {{this.name}}={{this.value}}
 {{/each}}
 {{/if}}
 
-{{#if LABEL}}
-{{#each LABEL}}
+{{#if LABELS}}
+{{#each LABELS}}
 LABEL {{this.key}}={{this.value}}
 {{/each}}
 {{/if}}
