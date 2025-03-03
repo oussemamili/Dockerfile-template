@@ -34,7 +34,7 @@ USER {{USER}}
 
 {{#if ARGS}}
 {{#each ARGS}}
-ARG {{this.name}}{{#if this.value}}{{#unless (eq this.value "")}}={{this.value}}{{/unless}}{{/if}}
+ARG {{this.name}}={{this.value}}
 {{/each}}
 {{/if}}
 
