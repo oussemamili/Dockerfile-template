@@ -38,7 +38,7 @@ ARG {{this.name}}{{#if this.value}}={{this.value}}{{/if}}
 {{/each}}
 {{/if}}
 
-{{#if INSTALL_COMMAND}}
+{{#if VOLUME}}
 VOLUME {{VOLUME}}
 {{/if}}
 
