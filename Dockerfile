@@ -3,9 +3,7 @@ FROM {{BASE_IMAGE}}
 {{/if}}
 
 {{#if ENV_VARS}}
-{{#each ENV_VARS}}
-ENV {{this.name}}={{this.value}}
-{{/each}}
+ENV {{ENV_VARS}}
 {{/if}}
 
 {{#if WORKDIR}}
