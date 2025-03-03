@@ -12,7 +12,7 @@ ENV {{this.name}}={{this.value}}
 {{#each LABEL}}
 LABEL {{this.key}}={{this.value}}
 {{/each}}
-{{/if}
+{{/if}}
 
 {{#if WORKDIR}}
 WORKDIR {{WORKDIR}}
