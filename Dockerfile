@@ -34,7 +34,7 @@ USER {{USER}}
 
 {{#if ARGS}}
 {{#each ARGS}}
-ARG {{this.name}}={{this.value}}
+ARG {{this.name}}{{#if this.value}}={{this.value}}{{/if}}
 {{/each}}
 {{/if}}
 
