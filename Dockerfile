@@ -3,7 +3,7 @@ FROM {{BASE_IMAGE}}
 {{/if}}
 
 {{#if ENV_VARS}}
-ENV {{ENV_VARS}}
+{{ENV_VARS}}
 {{/if}}
 
 {{#if WORKDIR}}
