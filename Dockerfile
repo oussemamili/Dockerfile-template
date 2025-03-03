@@ -10,7 +10,7 @@ ENV {{this.name}}={{this.value}}
 
 {{#if LABEL}}
 {{#each LABEL}}
-LABEL {{this.key}={{this.value}}
+LABEL {{this.key}}={{this.value}}
 {{/each}}
 {{/if}
 
