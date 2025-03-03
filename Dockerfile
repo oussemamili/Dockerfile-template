@@ -8,6 +8,12 @@ ENV {{this.name}}={{this.value}}
 {{/each}}
 {{/if}}
 
+{{#if LABEL}}
+{{#each LABEL}}
+LABEL {{this.key}={{this.value}}
+{{/each}}
+{{/if}
+
 {{#if WORKDIR}}
 WORKDIR {{WORKDIR}}
 {{/if}}
@@ -20,6 +26,16 @@ COPY {{this.hostPath}} {{this.containerPath}}
 
 {{#if INSTALL_COMMAND}}
 RUN {{INSTALL_COMMAND}}
+{{/if}}
+
+{{#if USER}}
+USER {{USER}}
+{{/if}}
+
+{{#if ARG}}
+{{#each ARG}}
+ARG {{this.name}}{{#if this.value}}={{this.value}}{{/if}}
+{{/each}}
 {{/if}}
 
 {{#if INSTALL_COMMAND}}
