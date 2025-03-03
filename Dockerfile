@@ -4,7 +4,7 @@ FROM {{BASE_IMAGE}}
 
 {{#if ENV_VARS}}
 {{#each ENV_VARS}}
-ENV {{this.key}}={{this.value}}
+ENV {{this.name}}={{this.value}}
 {{/each}}
 {{/if}}
 
@@ -14,7 +14,7 @@ WORKDIR {{WORKDIR}}
 
 {{#if FILES}}
 {{#each FILES}}
-COPY {{this.src}} {{this.dest}}
+COPY {{this.hostPath}} {{this.containerPath}}
 {{/each}}
 {{/if}}
 
