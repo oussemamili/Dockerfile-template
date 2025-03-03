@@ -32,8 +32,8 @@ RUN {{INSTALL_COMMAND}}
 USER {{USER}}
 {{/if}}
 
-{{#if ARG}}
-{{#each ARG}}
+{{#if ARGS}}
+{{#each ARGS}}
 ARG {{this.name}}={{this.value}}
 {{/each}}
 {{/if}}
