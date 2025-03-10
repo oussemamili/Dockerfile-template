@@ -20,12 +20,12 @@ WORKDIR {{WORKDIR}}
 
 {{#if FILES}}
 {{#each FILES}}
-COPY {{this.hostPath}} {{this.containerPath}}
+COPY {{#if this.option}}{{this.option}}{{/if}} {{this.hostPath}} {{this.containerPath}}
 {{/each}}
 {{/if}}
 
 {{#if INSTALL_COMMAND}}
-RUN {{INSTALL_COMMAND}}
+RUN {{#if this.option}}{{this.option}}{{/if}} {{INSTALL_COMMAND}}
 {{/if}}
 
 {{#if USER}}
