@@ -25,7 +25,7 @@ COPY {{#if this.option}}{{this.option}}{{/if}} {{this.hostPath}} {{this.containe
 {{/if}}
 
 {{#if INSTALL_COMMAND}}
-RUN {{#if this.option}}{{this.option}}{{/if}} {{INSTALL_COMMAND}}
+RUN {{#if this.option}}{{this.option}}{{/if}} {{this.command}}
 {{/if}}
 
 {{#if USER}}
