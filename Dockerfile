@@ -2,11 +2,13 @@
 FROM {{BASE_IMAGE}}
 {{/if}}
 
-{{#if ENV_VARS}}
 {{#each ENV_VARS}}
+  {{#if this.name}}
+    {{#if this.value}}
 ENV {{this.name}}={{this.value}}
+    {{/if}}
+  {{/if}}
 {{/each}}
-{{/if}}
 
 {{#if LABELS}}
 {{#each LABELS}}
