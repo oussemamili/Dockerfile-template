@@ -33,7 +33,7 @@ COPY {{#if this.option}}{{this.option}}{{/if}} {{this.hostPath}} {{this.containe
 {{#if INSTALL_COMMAND}}
   {{#each INSTALL_COMMAND}}
       {{#if this.command}}
-RUN {{#if this.option}}{{this.option}}{{/if}} {{this.command}}
+RUN {{#if this.option}}{{this.option}} {{/if}}{{this.command}}
     {{/if}}
   {{/each}}
 {{/if}}
