@@ -1,5 +1,3 @@
-commit msg : modified ENV/LABEL/COPY structure
-
 {{#if BASE_IMAGE}}
 FROM {{BASE_IMAGE}}
 {{/if}}
