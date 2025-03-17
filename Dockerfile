@@ -1,5 +1,5 @@
 {{#if BASE_IMAGE}}
-FROM {{BASE_IMAGE}}
+FROM {{{BASE_IMAGE}}}
 {{/if}}
 
 {{#each ENV_VARS}}
