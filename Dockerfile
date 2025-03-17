@@ -11,8 +11,10 @@ ENV {{this.name}}={{this.value}}
 {{/each}}
 
 {{#each LABELS}}
-  {{#if (and this.key this.value)}}
+  {{#if this.key}}
+    {{#if this.value}}
 LABEL {{this.key}}={{this.value}}
+    {{/if}}
   {{/if}}
 {{/each}}
 
@@ -21,15 +23,17 @@ WORKDIR {{WORKDIR}}
 {{/if}}
 
 {{#each FILES}}
-  {{#if (and this.hostPath this.containerPath)}}
+  {{#if this.hostPath}}
+    {{#if this.containerPath}}
 COPY {{#if this.option}}{{this.option}}{{/if}} {{this.hostPath}} {{this.containerPath}}
+    {{/if}}
   {{/if}}
 {{/each}}
 
 {{#if INSTALL_COMMAND}}
-{{#each INSTALL_COMMAND}}
-RUN {{#if this.option}}{{this.option}}{{/if}} {{this.command}}
-{{/each}}
+  {{#each INSTALL_COMMAND}}
+RUN {{#if this.option}}{{this.option}}{{/if}}{{this.command}}
+  {{/each}}
 {{/if}}
 
 {{#if USER}}
