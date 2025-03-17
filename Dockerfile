@@ -30,23 +30,21 @@ COPY {{#if this.option}}{{this.option}}{{/if}} {{this.hostPath}} {{this.containe
   {{/if}}
 {{/each}}
 
-{{#if INSTALL_COMMAND}}
-  {{#each INSTALL_COMMAND}}
-      {{#if this.command}}
+{{#each INSTALL_COMMAND}}
+  {{#if this.command}}
 RUN {{#if this.option}}{{this.option}} {{/if}}{{this.command}}
-    {{/if}}
-  {{/each}}
-{{/if}}
+  {{/if}}
+{{/each}}
 
 {{#if USER}}
 USER {{USER}}
 {{/if}}
 
-{{#if ARGS}}
 {{#each ARGS}}
+  {{#if this.name}}
 ARG {{this.name}}{{#if this.value}}={{this.value}}{{/if}}
+  {{/if}}
 {{/each}}
-{{/if}}
 
 {{#if VOLUME}}
 VOLUME {{VOLUME}}
