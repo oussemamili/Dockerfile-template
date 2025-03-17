@@ -1,30 +1,30 @@
+commit msg : modified ENV/LABEL/COPY structure
+
 {{#if BASE_IMAGE}}
 FROM {{BASE_IMAGE}}
 {{/if}}
 
 {{#each ENV_VARS}}
-  {{#if this.name}}
-    {{#if this.value}}
+  {{#if (and this.name this.value)}}
 ENV {{this.name}}={{this.value}}
-    {{/if}}
   {{/if}}
 {{/each}}
 
-{{#if LABELS}}
 {{#each LABELS}}
+  {{#if (and this.key this.value)}}
 LABEL {{this.key}}={{this.value}}
+  {{/if}}
 {{/each}}
-{{/if}}
 
 {{#if WORKDIR}}
 WORKDIR {{WORKDIR}}
 {{/if}}
 
-{{#if FILES}}
 {{#each FILES}}
+  {{#if (and this.hostPath this.containerPath)}}
 COPY {{#if this.option}}{{this.option}}{{/if}} {{this.hostPath}} {{this.containerPath}}
+  {{/if}}
 {{/each}}
-{{/if}}
 
 {{#if INSTALL_COMMAND}}
 {{#each INSTALL_COMMAND}}
