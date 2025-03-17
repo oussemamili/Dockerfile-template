@@ -3,8 +3,10 @@ FROM {{BASE_IMAGE}}
 {{/if}}
 
 {{#each ENV_VARS}}
-  {{#if (and this.name this.value)}}
+  {{#if this.name}}
+    {{#if this.value}}
 ENV {{this.name}}={{this.value}}
+    {{/if}}
   {{/if}}
 {{/each}}
 
