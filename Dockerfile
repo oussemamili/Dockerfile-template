@@ -59,5 +59,5 @@ ENTRYPOINT [{{ENTRYPOINT}}]
 {{/if}}
 
 {{#if CMD}}
-CMD [{{CMD}}]
+CMD [{{{CMD}}}]
 {{/if}}
