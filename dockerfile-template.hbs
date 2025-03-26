@@ -1,63 +1,19 @@
-{{#if BASE_IMAGE}}
-FROM {{{BASE_IMAGE}}}
-{{/if}}
+FROM {{BASE_IMAGE}}
 
-{{#each ENV_VARS}}
-  {{#if this.name}}
-    {{#if this.value}}
-ENV {{{this.name}}}={{{this.value}}}
-    {{/if}}
-  {{/if}}
-{{/each}}
+WORKDIR {{WORKDIR}}
 
-{{#each LABELS}}
-  {{#if this.key}}
-    {{#if this.value}}
-LABEL {{{this.key}}}={{{this.value}}}
-    {{/if}}
-  {{/if}}
-{{/each}}
-
-{{#if WORKDIR}}
-WORKDIR {{{WORKDIR}}}
-{{/if}}
-
+{{#if FILES}}
 {{#each FILES}}
-  {{#if this.hostPath}}
-    {{#if this.containerPath}}
-COPY {{#if this.option}}{{{this.option}}}{{/if}} {{{this.hostPath}}} {{{this.containerPath}}}
-    {{/if}}
-  {{/if}}
+COPY {{hostPath}} {{containerPath}}
 {{/each}}
+{{/if}}
 
+{{#if INSTALL_COMMAND}}
 {{#each INSTALL_COMMAND}}
-  {{#if this.command}}
-RUN {{#if this.option}}{{{this.option}}} {{/if}}{{{this.command}}}
-  {{/if}}
+RUN {{command}}{{#if option}} {{option}}{{/if}}
 {{/each}}
-
-{{#if USER}}
-USER {{{USER}}}
 {{/if}}
 
-{{#each ARGS}}
-  {{#if this.name}}
-ARG {{{this.name}}}{{#if this.value}}={{{this.value}}}{{/if}}
-  {{/if}}
-{{/each}}
+EXPOSE {{PORT}}
 
-{{#if VOLUME}}
-VOLUME {{{VOLUME}}}
-{{/if}}
-
-{{#if PORT}}
-EXPOSE {{{PORT}}}
-{{/if}}
-
-{{#if ENTRYPOINT}}
-ENTRYPOINT [{{{ENTRYPOINT}}}]
-{{/if}}
-
-{{#if CMD}}
-CMD [{{{CMD}}}]
-{{/if}}
+CMD {{CMD}}
