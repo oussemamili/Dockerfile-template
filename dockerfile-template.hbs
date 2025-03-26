@@ -1,19 +1,14 @@
 FROM {{BASE_IMAGE}}
-
 WORKDIR {{WORKDIR}}
-
 {{#if FILES}}
 {{#each FILES}}
 COPY {{hostPath}} {{containerPath}}
 {{/each}}
 {{/if}}
-
 {{#if INSTALL_COMMAND}}
 {{#each INSTALL_COMMAND}}
 RUN {{command}}{{#if option}} {{option}}{{/if}}
 {{/each}}
 {{/if}}
-
 EXPOSE {{PORT}}
-
 CMD {{CMD}}
